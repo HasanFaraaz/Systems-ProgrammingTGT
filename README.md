@@ -23,8 +23,11 @@
 
 4.) The output is appended to the to a textfile called as `FileSizeDump.txt`, this file will be created in the place for the path supplied
 
+### Script Usage
+python3 getFileSize.py 'supply path here'
 
-### Script Usage & Output 1
+
+### Output 1
 
 
 hasan@hasan-550p5c-550p7c:~/Desktop/Development/Target/Systems-ProgrammingTGT$ python3 getFileSize.py /home/hasan/Desktop/FolderSize/important\ documents/
@@ -64,7 +67,7 @@ Printing the json for temporary reference, json will be appended & dumped in a t
 ```
 
 
-### Script Usage & Output 2
+### Output 2
 
 hasan@hasan-550p5c-550p7c:~/Desktop/Development/Target/Systems-ProgrammingTGT$ python3 getFileSize.py /home/hasan/Desktop/Development/Target/Systems-ProgrammingTGT/
 
