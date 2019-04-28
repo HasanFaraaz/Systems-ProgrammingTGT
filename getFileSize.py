@@ -78,7 +78,7 @@ def getdisk():
 
     print('\nPrinting the json for temporary reference, '
            'json will be appended & dumped '
-          'in a text file with the name FileSizeDump.txt')
+          'in a text file with the name FileSizeDump.txt inside the supplied path')
     print(json.dumps(FinalDict, indent=4))
 
 getdisk()
