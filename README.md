@@ -8,9 +8,12 @@
 
 ### Prerequisites
 
-| Prerequisite                                                         | Version |
-| ---------------------------------------------------------------------| ------- |
-| [Python](https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tar.xz)|`~ ^ 3.5`|
+There is only 1 Prerequisite which is very very important, that is to use python 3 do not use python2.
+
+
+| Prerequisite                                                           | Version |
+| -----------------------------------------------------------------------|---------|
+| [Python 3](https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tar.xz)|`~ ^ 3.5`|
 
 
 ## Note:-
