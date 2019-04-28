@@ -37,7 +37,7 @@ hasan@hasan-550p5c-550p7c:~/Desktop/Development/Target/Systems-ProgrammingTGT$ p
 
 The path is  /home/hasan/Desktop/FolderSize/important documents/
 
-Printing the json for temporary reference, json will be appended & dumped in a text file with the name FileSizeDump.txt
+Printing the json for temporary reference, json will be appended & dumped in a text file with the name FileSizeDump.txt inside the supplied path
 
 ```
 {
@@ -76,7 +76,8 @@ hasan@hasan-550p5c-550p7c:~/Desktop/Development/Target/Systems-ProgrammingTGT$ p
 
 The path is  /home/hasan/Desktop/Development/Target/Systems-ProgrammingTGT/
 
-Printing the json for temporary reference, json will be appended & dumped in a text file with the name FileSizeDump.txt
+Printing the json for temporary reference, json will be appended & dumped in a text file with the name FileSizeDump.txt inside the supplied path
+
 ```
 {
     "pathSupplied": "/home/hasan/Desktop/Development/Target/Systems-ProgrammingTGT/",
