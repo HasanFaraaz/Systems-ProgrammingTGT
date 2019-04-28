@@ -31,7 +31,7 @@ def getdisk():
         # in case direcory does not exist
         if directoryEx.errno == errno.ENOENT:
             print('The supplied path does not exist ' + sys.argv[1])
-            print('Be sure that you have escaped space or other such characters ')
+            print('Be sure that you have escaped/enclosed space or other such characters ')
             sys.exit(1)
 
         #if path supplied is not a directory
