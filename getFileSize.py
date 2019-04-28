@@ -6,10 +6,15 @@ import datetime
 from collections import OrderedDict
 from operator import itemgetter
 
-__author__ = "Hasan"
+__author__ = 'Hasan'
 
 
 def getdisk():
+    # being sure that right python is used
+    MIN = (3, 5, 2)
+    if not sys.version_info >= MIN:
+        raise EnvironmentError('Python version below required version, required is at least 3.5.2')
+
     path = ''
     # validate if path is actually supplied
     try:
@@ -25,14 +30,14 @@ def getdisk():
     except OSError as directoryEx:
         # in case direcory does not exist
         if directoryEx.errno == errno.ENOENT:
-            print("The supplied path does not exist " + sys.argv[1])
+            print('The supplied path does not exist ' + sys.argv[1])
+            print('Be sure that you have escaped space or other such characters ')
             sys.exit(1)
 
         #if path supplied is not a directory
         if directoryEx.errno == errno.ENOTDIR:
-            print("The path supplied is not a directory!")
+            print('The path supplied is not a directory!')
             sys.exit(1)
-
 
     print('\nThe path is ', path)
 
@@ -46,17 +51,20 @@ def getdisk():
         '''
         for name in files:
             try:
-                #in case the file is being used by a process or not available for processing
+                # in case the file is being used by a process or not available for processing
                 sizeDict[os.path.join(root, name)] = os.stat(os.path.join(root, name)).st_size
             except Exception as e:
-                #print('Exception occured on this File, The execption is ->'+
+                # print('Exception occured on this File, The execption is ->'+
                 #      str(e),' ',os.path.join(root, name))
-                sizeDict[str(os.path.join(root, name))] = 'Exception occured on this File, The execption is ->'+str(e)
+                sizeDict[str(os.path.join(root, name))] = 'Exception occured on this File, The exception is ->'+str(e)
 
-    #sorting the dict by file size, so that file with biggest size is on top
-    sizeDict = OrderedDict(sorted(sizeDict.items(), key = itemgetter(1), reverse = True))
+    try:
+        # sorting the dict by file size, so that file with biggest size is on top
+        sizeDict = OrderedDict(sorted(sizeDict.items(), key = itemgetter(1), reverse = True))
+    except TypeError as TeX:
+        print('Exception Occured while sorting files by size, this means few file\'s size were not captured, search for \'->\' in the dumped json for detailed info')
 
-    #using list of tuples, so that order is preserved to be used in orderedDict
+    # using list of tuples, so that order is preserved to be used in orderedDict
     FinalDict = OrderedDict([('pathSupplied',path),
                             ('date_captured',str(datetime.datetime.now())),
                              ('files', sizeDict)])
@@ -64,7 +72,7 @@ def getdisk():
     if len(FinalDict['files']) == 0:
         print('\nSupplied folder seems empty')
 
-    #Wrirting the output to a file for later use
+    # Writing the output to a file for later use
     with open('FileSizeDump.txt','a') as FileSizeDump:
         FileSizeDump.write(json.dumps(FinalDict, indent=4)+'\n\n\n')
 
